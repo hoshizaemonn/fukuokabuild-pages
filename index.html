@@ -189,15 +189,15 @@
 
 <div class="card site-a">
   <span class="site-label a">f-build.co.jp</span>
-  <p>「コラム」と「お知らせ」の2カテゴリーがあります。コラムはSEO集客向け、お知らせは告知用です。</p>
+  <p>「お知らせ」というカスタム投稿タイプです。コラム記事や告知に使います。</p>
 
   <h3>投稿手順</h3>
 
   <div class="step">
     <div class="step-num">1</div>
     <div class="step-body">
-      <h4>左メニュー「投稿」&rarr;「新規追加」</h4>
-      <p>WordPressの通常の投稿機能を使います。</p>
+      <h4>左メニュー「お知らせ」&rarr;「新規追加」</h4>
+      <p>通常の「投稿」ではなく、専用のメニューです。</p>
     </div>
   </div>
 
@@ -213,30 +213,29 @@
   <div class="step">
     <div class="step-num">3</div>
     <div class="step-body">
-      <h4>カテゴリーを選択</h4>
-      <p>右サイドバーの「カテゴリー」から <strong>「コラム」</strong> または <strong>「お知らせ」</strong> にチェック。</p>
+      <h4>本文を書く</h4>
+      <p>ブロックエディタで見出し（H2）と段落を交互に配置するのが基本。<br>
+      長い記事は<strong>見出し（H2）で3〜5セクション</strong>に分けると読みやすくなります。<br>
+      最後に「まとめ」を書くと記事がきれいに締まります。</p>
     </div>
   </div>
 
   <div class="step">
     <div class="step-num">4</div>
     <div class="step-body">
-      <h4>本文を書く</h4>
-      <p>ブロックエディタで見出し（H2/H3）と段落を交互に配置するのが基本。<br>
-      長い記事は<strong>見出し（H2）で3〜5セクション</strong>に分けると読みやすくなります。</p>
+      <h4>右サイドバーを設定</h4>
+      <p>「お知らせ」タブで以下を設定：</p>
+      <table>
+        <tr><th>項目</th><th>内容</th></tr>
+        <tr><td>アイキャッチ画像</td><td>記事の上部・一覧ページに表示される画像</td></tr>
+        <tr><td>スラッグ</td><td>URLの末尾部分。英数字で付ける（例: <code>column1</code>）</td></tr>
+        <tr><td>タグ_お知らせ</td><td>必要に応じてタグを設定</td></tr>
+      </table>
     </div>
   </div>
 
   <div class="step">
     <div class="step-num">5</div>
-    <div class="step-body">
-      <h4>アイキャッチ画像を設定</h4>
-      <p>右サイドバー「アイキャッチ画像」から画像をアップロード。一覧・記事上部に表示されます。</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="step-num">6</div>
     <div class="step-body">
       <h4>公開</h4>
       <p>右上の「公開」ボタンを押して完了。<br>
@@ -244,18 +243,12 @@
     </div>
   </div>
 
-  <h3>コラム記事の構成テンプレート</h3>
-  <table>
-    <tr><th>パート</th><th>内容</th><th>目安</th></tr>
-    <tr><td>リード文</td><td>読者の悩み・疑問を提示</td><td>3〜5行</td></tr>
-    <tr><td>H2: ポイント1</td><td>具体的な解説</td><td>200〜300字</td></tr>
-    <tr><td>H2: ポイント2</td><td>具体的な解説</td><td>200〜300字</td></tr>
-    <tr><td>H2: ポイント3</td><td>具体的な解説</td><td>200〜300字</td></tr>
-    <tr><td>H2: まとめ</td><td>要点の整理 + お問い合わせ誘導</td><td>3〜5行</td></tr>
-  </table>
+  <div class="tip">
+    <strong>POINT:</strong> 記事の末尾には「お問い合わせはこちら」ボタンと「分譲住宅ブランドサイト」への誘導が自動で表示されます。本文に入れる必要はありません。
+  </div>
 
   <div class="good">
-    <strong>時短TIPS:</strong> Claudeに「福岡の木造アパート投資について、f-build.co.jpのコラム記事を書いて。H2見出し3〜5個、各200〜300字で」と指示すれば下書きが一瞬で完成します。
+    <strong>時短TIPS:</strong> 既存のコラム記事を開いて「Copy to a new draft」を押せば同じ構成で複製できます。タイトルと本文を書き換えるだけでOK。
   </div>
 </div>
 
