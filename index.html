@@ -267,7 +267,7 @@
 
 <div class="card site-a">
   <span class="site-label a">f-build.co.jp</span>
-  <p>オーナー様のインタビュー・体験談を掲載するページです。</p>
+  <p>オーナー様のインタビュー・体験談を掲載するページです。カスタム投稿タイプで、専用の入力フィールドが多数あります。</p>
 
   <h3>投稿手順</h3>
 
@@ -275,52 +275,94 @@
     <div class="step-num">1</div>
     <div class="step-body">
       <h4>左メニュー「お客様の声」&rarr;「新規追加」</h4>
-      <p>カスタム投稿タイプなので、通常の「投稿」とは別メニューです。</p>
+      <p>通常の「投稿」とは別メニューです。</p>
     </div>
   </div>
 
   <div class="step">
     <div class="step-num">2</div>
     <div class="step-body">
-      <h4>タイトル = お客様のイニシャル + 属性</h4>
-      <p>例: <strong>Y様（34歳・会社員）奥様・娘2人</strong></p>
+      <h4>タイトルを入力</h4>
+      <p>お客様のイニシャルを入れます。<br>例: <strong>Y様</strong></p>
     </div>
   </div>
 
   <div class="step">
     <div class="step-num">3</div>
     <div class="step-body">
-      <h4>本文にインタビュー内容を記載</h4>
-      <p>Q&A形式が読みやすくおすすめです。投資のきっかけ → 福岡ビルドを選んだ理由 → 実際の感想 の流れで。</p>
+      <h4>右サイドバーを設定</h4>
+      <p>「お客様の声」タブで以下を設定：</p>
+      <table>
+        <tr><th>項目</th><th>内容</th></tr>
+        <tr><td>アイキャッチ画像</td><td>お客様の写真（顔出しNGならイメージでOK）</td></tr>
+        <tr><td>スラッグ</td><td><code>y01</code> のようにイニシャル+番号</td></tr>
+        <tr><td>タグ_お客様の声</td><td>必要に応じてタグを設定</td></tr>
+      </table>
     </div>
   </div>
 
   <div class="step">
     <div class="step-num">4</div>
     <div class="step-body">
-      <h4>アイキャッチ画像にお客様の写真を設定</h4>
-      <p>一覧ページのサムネイルに使われます。顔出しNGの場合はイメージ写真でOK。</p>
+      <h4>メタボックス「お客様の声」のフィールドを埋める</h4>
+      <p>本文エリアの下にスクロールすると、専用のメタボックスがあります。<br>
+      以下のフィールドを順番に入力してください：</p>
     </div>
   </div>
 
-  <div class="step">
+  <h3>メタボックスの入力フィールド一覧</h3>
+
+  <table>
+    <tr><th colspan="2" style="background:#e67e22;">基本情報</th></tr>
+    <tr><td>スライド用テキスト</td><td>一覧ページで表示される紹介文</td></tr>
+    <tr><td>お名前</td><td>例: Y様</td></tr>
+    <tr><td>性別</td><td>例: 男性</td></tr>
+    <tr><td>家族構成</td><td>例: 奥様・娘2人</td></tr>
+    <tr><td>年齢</td><td>例: 34歳</td></tr>
+    <tr><td>職業・役職</td><td>例: 会社員</td></tr>
+    <tr><td>活用コンテンツ</td><td>例: アパート</td></tr>
+  </table>
+
+  <table style="margin-top:12px;">
+    <tr><th colspan="2" style="background:#e67e22;">ストーリー（ヒアリング内容）</th></tr>
+    <tr><td>購入前・購入時のお悩み</td><td>不動産投資を始めたきっかけや当時の悩み</td></tr>
+    <tr><td>検討と比較のプロセス</td><td>他社との比較、検討の流れ</td></tr>
+    <tr><td>他社との違い1〜4</td><td>福岡ビルドの強みを1項目ずつ（例: 建築単価が安い、利回りが高い）</td></tr>
+    <tr><td>決め手になったポイント</td><td>最終的に福岡ビルドを選んだ理由</td></tr>
+    <tr><td>オーナー様のコメント</td><td>お客様ご自身の言葉での感想</td></tr>
+  </table>
+
+  <table style="margin-top:12px;">
+    <tr><th colspan="2" style="background:#e67e22;">投資実績データ</th></tr>
+    <tr><td>想定利回り</td><td>例: 約9.0%</td></tr>
+    <tr><td>稼働率</td><td>例: 100%（初年度）</td></tr>
+    <tr><td>年間収入</td><td>例: 約720万円（見込み）</td></tr>
+    <tr><td>購入形態</td><td>例: 新築</td></tr>
+    <tr><td>自己資金</td><td>例: 約1,500万円</td></tr>
+    <tr><td>年間手残り</td><td>例: 約300万円</td></tr>
+  </table>
+
+  <table style="margin-top:12px;">
+    <tr><th colspan="2" style="background:#e67e22;">まとめ</th></tr>
+    <tr><td>感想</td><td>一言で表す感想（例: 数字に裏付けされた安心感と自由が得られた）</td></tr>
+    <tr><td>ご自身の理想と考え方</td><td>投資を通じた今後のビジョン</td></tr>
+    <tr><td>担当者コメント（任意）</td><td>担当営業からのコメント</td></tr>
+  </table>
+
+  <div class="step" style="margin-top:20px;">
     <div class="step-num">5</div>
     <div class="step-body">
-      <h4>スラッグ（URL）を設定</h4>
-      <p>右サイドバーの「パーマリンク」で <code>y01</code> のようにイニシャル+番号に。<br>
-      URLが <code>/voice/y01/</code> のようになります。</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="step-num">6</div>
-    <div class="step-body">
       <h4>公開</h4>
+      <p>すべて入力したら右上の「公開」ボタン。すぐ出さない場合は「下書き保存」。</p>
     </div>
   </div>
 
   <div class="tip">
-    <strong>POINT:</strong> 既存の投稿（Y様・W様・T様）を参考にすると、トーン&マナーが揃います。
+    <strong>POINT:</strong> 既存の投稿（Y様）を開いて「Copy to a new draft」を押すと、同じ構成で複製できます。フィールドの中身だけ書き換えればOK。
+  </div>
+
+  <div class="important">
+    <strong>注意:</strong> フィールドが多いですが、全部埋めなくても公開は可能です。ただし「お名前」「年齢」「職業」「オーナー様のコメント」「想定利回り」は必ず入れてください。数字があるほうが説得力が出ます。
   </div>
 </div>
 
