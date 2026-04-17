@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WordPress投稿マニュアル｜福岡ビルド 2サイト</title>
+<style>
+  :root {
+    --navy: #1a2744;
+    --orange: #e67e22;
+    --blue: #2980b9;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --text: #333;
+    --border: #dee2e6;
+    --success: #27ae60;
+    --warning: #f39c12;
+    --code-bg: #f4f4f4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+  .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+  /* Header */
+  .header { background: var(--navy); color: #fff; padding: 40px 20px; text-align: center; margin-bottom: 30px; border-radius: 0 0 12px 12px; }
+  .header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+  .header p { opacity: 0.8; font-size: 0.95rem; }
+
+  /* TOC */
+  .toc { background: var(--card); border: 2px solid var(--navy); border-radius: 12px; padding: 24px 28px; margin-bottom: 30px; }
+  .toc h2 { font-size: 1.1rem; color: var(--navy); margin-bottom: 12px; border: none; padding: 0; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 6px; }
+  .toc a { color: var(--blue); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* Section */
+  h2 { font-size: 1.3rem; color: var(--navy); border-left: 4px solid var(--orange); padding-left: 12px; margin: 36px 0 16px; }
+  h3 { font-size: 1.1rem; color: var(--navy); margin: 24px 0 12px; }
+
+  /* Cards */
+  .card { background: var(--card); border-radius: 10px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .card.site-a { border-top: 4px solid var(--navy); }
+  .card.site-b { border-top: 4px solid var(--blue); }
+
+  /* Site labels */
+  .site-label { display: inline-block; padding: 4px 14px; border-radius: 20px; color: #fff; font-size: 0.8rem; font-weight: bold; margin-bottom: 12px; }
+  .site-label.a { background: var(--navy); }
+  .site-label.b { background: var(--blue); }
+
+  /* Steps */
+  .step { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+  .step-num { flex-shrink: 0; width: 36px; height: 36px; background: var(--orange); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1rem; }
+  .step-body { flex: 1; }
+  .step-body h4 { font-size: 1rem; margin-bottom: 4px; color: var(--navy); }
+  .step-body p { font-size: 0.9rem; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
+  th { background: var(--navy); color: #fff; padding: 10px 12px; text-align: left; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f9f9f9; }
+
+  /* URL box */
+  .url-box { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; font-family: monospace; font-size: 0.85rem; margin: 8px 0; word-break: break-all; }
+
+  /* Tips */
+  .tip { background: #fff9e6; border-left: 4px solid var(--warning); padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.9rem; }
+  .tip strong { color: var(--warning); }
+
+  .important { background: #fde8e8; border-left: 4px solid #e74c3c; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.9rem; }
+  .important strong { color: #e74c3c; }
+
+  .good { background: #e8f8f0; border-left: 4px solid var(--success); padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.9rem; }
+  .good strong { color: var(--success); }
+
+  /* Screenshot placeholder */
+  .screenshot { background: #eee; border: 2px dashed #ccc; border-radius: 8px; padding: 40px 20px; text-align: center; color: #999; font-size: 0.85rem; margin: 12px 0; }
+
+  /* Checklist */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0 8px 28px; position: relative; font-size: 0.9rem; border-bottom: 1px solid #f0f0f0; }
+  .checklist li::before { content: ""; position: absolute; left: 0; top: 12px; width: 16px; height: 16px; border: 2px solid var(--border); border-radius: 3px; }
+
+  /* Comparison table */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  @media (max-width: 600px) { .compare { grid-template-columns: 1fr; } }
+
+  /* Print */
+  @media print {
+    .header { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card { break-inside: avoid; }
+  }
+
+  .footer { text-align: center; padding: 30px; color: #999; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>WordPress 投稿マニュアル</h1>
+  <p>f-build.co.jp / fb-home.jp &#8212; 2サイト共通</p>
+</div>
+
+<div class="container">
+
+<!-- 目次 -->
+<div class="toc">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#overview">2サイトの投稿ページ一覧</a></li>
+    <li><a href="#login">ログイン方法（共通）</a></li>
+    <li><a href="#fbuild-news">f-build.co.jp &#8212; ニュース投稿</a></li>
+    <li><a href="#fbuild-voice">f-build.co.jp &#8212; お客様の声</a></li>
+    <li><a href="#fbhome-event">fb-home.jp &#8212; イベント投稿</a></li>
+    <li><a href="#fbhome-works">fb-home.jp &#8212; 施工事例</a></li>
+    <li><a href="#image">画像の準備ルール</a></li>
+    <li><a href="#seo">SEO・表示チェックリスト</a></li>
+    <li><a href="#weekly">週間投稿カレンダー（おすすめ）</a></li>
+    <li><a href="#shortcut">時短テクニック</a></li>
+  </ol>
+</div>
+
+<!-- ==============================
+     1. 概要
+     ============================== -->
+<h2 id="overview">1. 2サイトの投稿ページ一覧</h2>
+
+<div class="compare">
+  <div class="card site-a">
+    <span class="site-label a">f-build.co.jp</span>
+    <h3 style="margin-top:0">福岡ビルド（投資用アパート）</h3>
+    <table>
+      <tr><th>投稿タイプ</th><th>URL</th></tr>
+      <tr><td>ニュース<br><small>（コラム / お知らせ）</small></td><td><code>/news-list/</code></td></tr>
+      <tr><td>お客様の声</td><td><code>/voice-list/</code></td></tr>
+    </table>
+    <p style="font-size:0.85rem; margin-top:8px;">テーマ: Fukuoka-Build（カスタム）</p>
+  </div>
+  <div class="card site-b">
+    <span class="site-label b">fb-home.jp</span>
+    <h3 style="margin-top:0">FBホーム（分譲住宅）</h3>
+    <table>
+      <tr><th>投稿タイプ</th><th>URL</th></tr>
+      <tr><td>イベント</td><td><code>/event/</code></td></tr>
+      <tr><td>施工事例</td><td><small>（一覧ページなし・トップに表示）</small></td></tr>
+    </table>
+    <p style="font-size:0.85rem; margin-top:8px;">テーマ: fb-home-theme（カスタム）</p>
+  </div>
+</div>
+
+
+<!-- ==============================
+     2. ログイン
+     ============================== -->
+<h2 id="login">2. ログイン方法（共通）</h2>
+
+<div class="card">
+  <p>どちらのサイトも、ドメインの後ろに <code>/wp-admin/</code> を付けるとログイン画面が開きます。</p>
+
+  <div class="url-box">
+    f-build.co.jp &rarr; <strong>https://f-build.co.jp/wp-admin/</strong><br>
+    fb-home.jp &rarr; <strong>https://fb-home.jp/wp-admin/</strong>
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>ユーザー名・パスワードを入力</h4>
+      <p>発行済みのアカウント情報でログインしてください。</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>ダッシュボードが表示されたらOK</h4>
+      <p>左のメニューから投稿したいページに移動します。</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>POINT:</strong> ブックマーク登録しておくと毎回URLを打たなくて済みます。
+  </div>
+</div>
+
+
+<!-- ==============================
+     3. f-build ニュース
+     ============================== -->
+<h2 id="fbuild-news">3. f-build.co.jp &#8212; ニュース投稿</h2>
+
+<div class="card site-a">
+  <span class="site-label a">f-build.co.jp</span>
+  <p>「コラム」と「お知らせ」の2カテゴリーがあります。コラムはSEO集客向け、お知らせは告知用です。</p>
+
+  <h3>投稿手順</h3>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>左メニュー「投稿」&rarr;「新規追加」</h4>
+      <p>WordPressの通常の投稿機能を使います。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>タイトルを入力</h4>
+      <p>コラムの場合は「【コラム】」を頭に付けると一覧で区別しやすくなります。<br>
+      例: <strong>【コラム】福岡で木造アパート経営を始めるなら知っておきたい5つのこと</strong></p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>カテゴリーを選択</h4>
+      <p>右サイドバーの「カテゴリー」から <strong>「コラム」</strong> または <strong>「お知らせ」</strong> にチェック。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h4>本文を書く</h4>
+      <p>ブロックエディタで見出し（H2/H3）と段落を交互に配置するのが基本。<br>
+      長い記事は<strong>見出し（H2）で3〜5セクション</strong>に分けると読みやすくなります。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h4>アイキャッチ画像を設定</h4>
+      <p>右サイドバー「アイキャッチ画像」から画像をアップロード。一覧・記事上部に表示されます。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <h4>公開</h4>
+      <p>右上の「公開」ボタンを押して完了。<br>
+      すぐに公開しない場合は「下書き保存」でOK。</p>
+    </div>
+  </div>
+
+  <h3>コラム記事の構成テンプレート</h3>
+  <table>
+    <tr><th>パート</th><th>内容</th><th>目安</th></tr>
+    <tr><td>リード文</td><td>読者の悩み・疑問を提示</td><td>3〜5行</td></tr>
+    <tr><td>H2: ポイント1</td><td>具体的な解説</td><td>200〜300字</td></tr>
+    <tr><td>H2: ポイント2</td><td>具体的な解説</td><td>200〜300字</td></tr>
+    <tr><td>H2: ポイント3</td><td>具体的な解説</td><td>200〜300字</td></tr>
+    <tr><td>H2: まとめ</td><td>要点の整理 + お問い合わせ誘導</td><td>3〜5行</td></tr>
+  </table>
+
+  <div class="good">
+    <strong>時短TIPS:</strong> Claudeに「福岡の木造アパート投資について、f-build.co.jpのコラム記事を書いて。H2見出し3〜5個、各200〜300字で」と指示すれば下書きが一瞬で完成します。
+  </div>
+</div>
+
+
+<!-- ==============================
+     4. f-build お客様の声
+     ============================== -->
+<h2 id="fbuild-voice">4. f-build.co.jp &#8212; お客様の声</h2>
+
+<div class="card site-a">
+  <span class="site-label a">f-build.co.jp</span>
+  <p>オーナー様のインタビュー・体験談を掲載するページです。</p>
+
+  <h3>投稿手順</h3>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>左メニュー「お客様の声」&rarr;「新規追加」</h4>
+      <p>カスタム投稿タイプなので、通常の「投稿」とは別メニューです。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>タイトル = お客様のイニシャル + 属性</h4>
+      <p>例: <strong>Y様（34歳・会社員）奥様・娘2人</strong></p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>本文にインタビュー内容を記載</h4>
+      <p>Q&A形式が読みやすくおすすめです。投資のきっかけ → 福岡ビルドを選んだ理由 → 実際の感想 の流れで。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h4>アイキャッチ画像にお客様の写真を設定</h4>
+      <p>一覧ページのサムネイルに使われます。顔出しNGの場合はイメージ写真でOK。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h4>スラッグ（URL）を設定</h4>
+      <p>右サイドバーの「パーマリンク」で <code>y01</code> のようにイニシャル+番号に。<br>
+      URLが <code>/voice/y01/</code> のようになります。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <h4>公開</h4>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>POINT:</strong> 既存の投稿（Y様・W様・T様）を参考にすると、トーン&マナーが揃います。
+  </div>
+</div>
+
+
+<!-- ==============================
+     5. fb-home イベント
+     ============================== -->
+<h2 id="fbhome-event">5. fb-home.jp &#8212; イベント投稿</h2>
+
+<div class="card site-b">
+  <span class="site-label b">fb-home.jp</span>
+  <p>見学会・相談会・セミナーなどのイベント告知ページです。カスタム投稿タイプで、専用の入力欄があります。</p>
+
+  <h3>投稿手順</h3>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>左メニュー「イベント」&rarr;「イベントを追加」</h4>
+      <p>カレンダーアイコンのメニューです。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>タイトルを入力</h4>
+      <p>例: <strong>福津市福間 新築住宅 完成見学会</strong></p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>「イベント詳細」の専用フィールドを埋める</h4>
+      <p>本文エリアの下に専用の入力欄があります：</p>
+      <table>
+        <tr><th>項目</th><th>入力内容</th><th>例</th></tr>
+        <tr><td>日程</td><td>開催日時</td><td>2026.5.1 〜 2026.5.3 / 毎週末開催</td></tr>
+        <tr><td>場所</td><td>開催場所</td><td>福津市福間</td></tr>
+        <tr><td>タグ</td><td>イベント種別</td><td>完成見学会 / モデルハウス / 相談会</td></tr>
+        <tr><td>リンク先URL</td><td>ボタンの遷移先</td><td>空欄なら自動でお問い合わせへ</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h4>本文にイベントの詳細を記載</h4>
+      <p>見どころ、特典、予約方法などを書きます。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h4>アイキャッチ画像を設定</h4>
+      <p>物件写真やイベントバナーを設定。一覧ページのカードに表示されます。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <h4>公開</h4>
+      <p>公開すると <code>/event/</code> 一覧ページに自動表示されます。</p>
+    </div>
+  </div>
+
+  <div class="important">
+    <strong>注意:</strong> 終了したイベントは「下書き」に戻すか削除してください。過去のイベントが表示されたままだと信頼性が下がります。
+  </div>
+</div>
+
+
+<!-- ==============================
+     6. fb-home 施工事例
+     ============================== -->
+<h2 id="fbhome-works">6. fb-home.jp &#8212; 施工事例</h2>
+
+<div class="card site-b">
+  <span class="site-label b">fb-home.jp</span>
+  <p>完成した物件の施工事例を掲載します。トップページのギャラリーに表示されます。</p>
+
+  <h3>投稿手順</h3>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h4>左メニュー「施工事例」&rarr;「施工事例を追加」</h4>
+      <p>ビルアイコンのメニューです。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h4>タイトル = エリア + 特徴</h4>
+      <p>例: <strong>福津市 カリフォルニアスタイル 4LDK</strong></p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h4>本文に物件の詳細・写真を配置</h4>
+      <p>外観・内観・こだわりポイントなどを写真中心で構成。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h4>アイキャッチ画像を設定</h4>
+      <p>一番映える外観写真を選びます。トップページのギャラリーに使われます。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h4>公開</h4>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>POINT:</strong> 施工事例は一覧ページがないため、トップページに表示される順番が重要です。新しい事例ほど上に来ます。
+  </div>
+</div>
+
+
+<!-- ==============================
+     7. 画像ルール
+     ============================== -->
+<h2 id="image">7. 画像の準備ルール</h2>
+
+<div class="card">
+  <table>
+    <tr><th>項目</th><th>推奨</th></tr>
+    <tr><td>ファイル形式</td><td>JPG または WebP（PNGは写真には不向き）</td></tr>
+    <tr><td>アイキャッチサイズ</td><td><strong>1200 x 630px</strong>（SNSシェア時にも最適）</td></tr>
+    <tr><td>本文中の画像</td><td>横幅 <strong>1024px以上</strong>（自動リサイズされます）</td></tr>
+    <tr><td>ファイルサイズ</td><td><strong>500KB以下</strong> を目安に圧縮</td></tr>
+    <tr><td>ファイル名</td><td>日本語NG。英数字で付ける<br>例: <code>fukuma-4ldk-exterior.jpg</code></td></tr>
+  </table>
+
+  <div class="good">
+    <strong>画像圧縮の時短:</strong> <a href="https://squoosh.app/" target="_blank">squoosh.app</a> にドラッグ&ドロップするだけ。品質80%のWebPで出力すれば、見た目そのままで容量1/3以下に。
+  </div>
+</div>
+
+
+<!-- ==============================
+     8. チェックリスト
+     ============================== -->
+<h2 id="seo">8. SEO・表示チェックリスト</h2>
+
+<div class="card">
+  <p>公開前にこの項目を確認してください：</p>
+  <ul class="checklist">
+    <li>タイトルにキーワードが含まれている（例: 福岡 アパート 投資）</li>
+    <li>アイキャッチ画像が設定されている</li>
+    <li>本文が300字以上ある</li>
+    <li>H2見出しが最低1つある（コラムの場合）</li>
+    <li>カテゴリー / タグが選択されている</li>
+    <li>スラッグ（URL）が英数字になっている（日本語URLは避ける）</li>
+    <li>スマホで表示確認（プレビュー &rarr; ブラウザの開発者ツール）</li>
+    <li>リンク切れがない</li>
+  </ul>
+
+  <div class="tip">
+    <strong>スラッグの確認方法:</strong> 右サイドバー「パーマリンク」&rarr;「URLスラッグ」で確認・編集できます。<br>
+    日本語タイトルを付けると自動で日本語URLになるので、手動で英語に直してください。<br>
+    例: <code>fukuoka-apartment-5tips</code>
+  </div>
+</div>
+
+
+<!-- ==============================
+     9. 週間カレンダー
+     ============================== -->
+<h2 id="weekly">9. 週間投稿カレンダー（おすすめ）</h2>
+
+<div class="card">
+  <p>定期的に投稿を続けることでSEO効果が上がります。最低限、以下のペースを目標に：</p>
+
+  <table>
+    <tr><th>サイト</th><th>投稿タイプ</th><th>頻度</th><th>内容例</th></tr>
+    <tr><td rowspan="2" style="vertical-align:middle; background:#f0f3f8;">f-build.co.jp</td>
+      <td>コラム</td><td>月2回</td><td>不動産投資ノウハウ、福岡エリア情報</td></tr>
+    <tr><td>お客様の声</td><td>新規オーナー毎</td><td>インタビュー記事</td></tr>
+    <tr><td rowspan="2" style="vertical-align:middle; background:#e8f4fd;">fb-home.jp</td>
+      <td>イベント</td><td>開催の都度</td><td>見学会・相談会の告知</td></tr>
+    <tr><td>施工事例</td><td>完成の都度</td><td>完成物件の写真ギャラリー</td></tr>
+  </table>
+
+  <div class="good">
+    <strong>コラムのネタ帳:</strong> 以下のテーマは検索ニーズが高く、SEO効果大です。<br>
+    ・福岡 アパート投資 始め方<br>
+    ・木造アパート 利回り 相場<br>
+    ・不動産投資 会社員 副業<br>
+    ・福岡 新築アパート メリット<br>
+    ・アパート経営 リスク 対策
+  </div>
+</div>
+
+
+<!-- ==============================
+     10. 時短テクニック
+     ============================== -->
+<h2 id="shortcut">10. 時短テクニック</h2>
+
+<div class="card">
+
+  <h3>A. Claudeで記事を一瞬で下書き</h3>
+  <p>以下をClaude（またはChatGPT）にコピペするだけで記事の下書きが完成します：</p>
+
+  <div style="background: var(--code-bg); border-radius: 8px; padding: 16px; margin: 12px 0; font-size: 0.85rem; line-height: 1.6;">
+    <strong>プロンプト例（コラム記事）:</strong><br><br>
+    福岡ビルド株式会社のWebサイト（f-build.co.jp）に掲載するコラム記事を書いてください。<br><br>
+    【テーマ】<span style="color:var(--orange)">[ここにテーマを入れる]</span><br>
+    【ターゲット】30〜50代の会社員（不動産投資に興味がある）<br>
+    【文字数】1500〜2000字<br>
+    【構成】リード文 → H2見出し3〜5個（各200〜300字）→ まとめ<br>
+    【トーン】専門的だが分かりやすく。堅すぎない。<br>
+    【CTA】最後に「福岡ビルドでは無料相談を受付中です。お気軽にお問い合わせください。」の誘導を入れる
+  </div>
+
+  <h3>B. 既存記事を複製して編集</h3>
+  <p>同じ構成の記事を量産するなら、WordPressの「Yoast Duplicate Post」プラグインを入れると、既存記事をワンクリックで複製できます。</p>
+
+  <h3>C. イベントは使い回し</h3>
+  <p>毎月の相談会など定期イベントは、前回の投稿を複製して日程・場所だけ変更すれば30秒で完了。</p>
+
+  <h3>D. 画像はスマホで撮ってそのままアップ</h3>
+  <p>施工現場・完成物件はスマホ撮影でOK。WordPress のメディアライブラリに直接アップロードできます。ファイル名だけ英数字にリネームしてください。</p>
+
+</div>
+
+
+<div class="footer">
+  <p>制作: 株式会社斗｜最終更新: 2026年4月17日</p>
+</div>
+
+</div>
+</body>
+</html>
