@@ -93,6 +93,11 @@
   }
 
   .footer { text-align: center; padding: 30px; color: #999; font-size: 0.8rem; }
+
+  /* Video */
+  .video-box { background: var(--card); border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .video-box h3 { font-size: 1rem; color: var(--navy); margin-bottom: 12px; }
+  .video-box video { width: 100%; border-radius: 8px; }
 </style>
 </head>
 <body>
@@ -181,9 +186,18 @@
 
 
 <!-- ==============================
-     3. f-build ニュース
+     3. f-build 操作動画 + ニュース
      ============================== -->
 <h2 id="fbuild-news">3. f-build.co.jp &#8212; ニュース投稿</h2>
+
+<div class="video-box site-a" style="border-top: 4px solid var(--navy);">
+  <span class="site-label a">f-build.co.jp</span>
+  <h3>操作ガイド動画</h3>
+  <video controls preload="metadata">
+    <source src="fbuild-guide.mp4" type="video/mp4">
+    お使いのブラウザでは動画を再生できません。
+  </video>
+</div>
 
 <div class="card site-a">
   <span class="site-label a">f-build.co.jp</span>
@@ -359,9 +373,18 @@
 
 
 <!-- ==============================
-     5. fb-home イベント
+     5. fb-home 操作動画 + イベント
      ============================== -->
 <h2 id="fbhome-event">5. fb-home.jp &#8212; イベント投稿</h2>
+
+<div class="video-box site-b" style="border-top: 4px solid var(--blue);">
+  <span class="site-label b">fb-home.jp</span>
+  <h3>操作ガイド動画</h3>
+  <video controls preload="metadata">
+    <source src="fbhome-guide.mp4" type="video/mp4">
+    お使いのブラウザでは動画を再生できません。
+  </video>
+</div>
 
 <div class="card site-b">
   <span class="site-label b">fb-home.jp</span>
