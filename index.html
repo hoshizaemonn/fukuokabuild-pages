@@ -367,7 +367,8 @@
 
 <div class="card site-b">
   <span class="site-label b">fb-home.jp</span>
-  <p>見学会・相談会・セミナーなどのイベント告知ページです。カスタム投稿タイプで、専用の入力欄があります。</p>
+  <p>見学会・相談会・セミナーなどのイベント告知ページです。<br>
+  <strong>クラシックエディタ</strong>（旧式の編集画面）で編集します。</p>
 
   <h3>投稿手順</h3>
 
@@ -383,21 +384,24 @@
     <div class="step-num">2</div>
     <div class="step-body">
       <h4>タイトルを入力</h4>
-      <p>例: <strong>福津市福間 新築住宅 完成見学会</strong></p>
+      <p>例: <strong>毎週平日 無料相談会 開催中</strong></p>
     </div>
   </div>
 
   <div class="step">
     <div class="step-num">3</div>
     <div class="step-body">
-      <h4>「イベント詳細」の専用フィールドを埋める</h4>
-      <p>本文エリアの下に専用の入力欄があります：</p>
+      <h4>本文にイベントの詳細を記載</h4>
+      <p>クラシックエディタ（Word風の編集画面）で内容を書きます。<br>
+      太字・箇条書き・リンク挿入はツールバーのボタンで操作します。</p>
+      <p>書く内容の目安：</p>
       <table>
-        <tr><th>項目</th><th>入力内容</th><th>例</th></tr>
-        <tr><td>日程</td><td>開催日時</td><td>2026.5.1 〜 2026.5.3 / 毎週末開催</td></tr>
-        <tr><td>場所</td><td>開催場所</td><td>福津市福間</td></tr>
-        <tr><td>タグ</td><td>イベント種別</td><td>完成見学会 / モデルハウス / 相談会</td></tr>
-        <tr><td>リンク先URL</td><td>ボタンの遷移先</td><td>空欄なら自動でお問い合わせへ</td></tr>
+        <tr><th>項目</th><th>例</th></tr>
+        <tr><td>イベントの概要</td><td>新築住宅の完成見学会を開催します</td></tr>
+        <tr><td>こんな方におすすめ</td><td>・注文住宅に興味がある方<br>・どんな家が建てられるか知りたい方</td></tr>
+        <tr><td>開催日時</td><td>毎週平日 10:00〜18:00（完全予約制）</td></tr>
+        <tr><td>対応方法</td><td>オンライン（Zoom）/ お電話でも対応可</td></tr>
+        <tr><td>お問い合わせ先</td><td>092-710-1180</td></tr>
       </table>
     </div>
   </div>
@@ -405,8 +409,15 @@
   <div class="step">
     <div class="step-num">4</div>
     <div class="step-body">
-      <h4>本文にイベントの詳細を記載</h4>
-      <p>見どころ、特典、予約方法などを書きます。</p>
+      <h4>「イベント詳細」のフィールドを埋める</h4>
+      <p>本文エリアの下にスクロールすると、専用の入力欄があります：</p>
+      <table>
+        <tr><th>項目</th><th>入力内容</th><th>例</th></tr>
+        <tr><td>日程</td><td>開催日時</td><td>毎週平日開催（要予約）</td></tr>
+        <tr><td>場所</td><td>開催場所</td><td>オンライン・お電話でも対応可</td></tr>
+        <tr><td>タグ</td><td>イベント種別</td><td>相談会</td></tr>
+        <tr><td>リンク先URL</td><td>ボタンの遷移先</td><td>空欄 &rarr; 自動でお問い合わせへ</td></tr>
+      </table>
     </div>
   </div>
 
@@ -414,7 +425,7 @@
     <div class="step-num">5</div>
     <div class="step-body">
       <h4>アイキャッチ画像を設定</h4>
-      <p>物件写真やイベントバナーを設定。一覧ページのカードに表示されます。</p>
+      <p>右サイドバーの「アイキャッチ画像」から設定。イベント一覧のカードに表示されます。</p>
     </div>
   </div>
 
@@ -422,12 +433,16 @@
     <div class="step-num">6</div>
     <div class="step-body">
       <h4>公開</h4>
-      <p>公開すると <code>/event/</code> 一覧ページに自動表示されます。</p>
+      <p>右上の「公開」ボタンで完了。<code>/event/</code> 一覧ページに自動表示されます。</p>
     </div>
   </div>
 
   <div class="important">
     <strong>注意:</strong> 終了したイベントは「下書き」に戻すか削除してください。過去のイベントが表示されたままだと信頼性が下がります。
+  </div>
+
+  <div class="tip">
+    <strong>POINT:</strong> 既存の「毎週平日 無料相談会 開催中」を参考にすると書き方がわかりやすいです。
   </div>
 </div>
 
@@ -439,51 +454,11 @@
 
 <div class="card site-b">
   <span class="site-label b">fb-home.jp</span>
-  <p>完成した物件の施工事例を掲載します。トップページのギャラリーに表示されます。</p>
 
-  <h3>投稿手順</h3>
-
-  <div class="step">
-    <div class="step-num">1</div>
-    <div class="step-body">
-      <h4>左メニュー「施工事例」&rarr;「施工事例を追加」</h4>
-      <p>ビルアイコンのメニューです。</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="step-num">2</div>
-    <div class="step-body">
-      <h4>タイトル = エリア + 特徴</h4>
-      <p>例: <strong>福津市 カリフォルニアスタイル 4LDK</strong></p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="step-num">3</div>
-    <div class="step-body">
-      <h4>本文に物件の詳細・写真を配置</h4>
-      <p>外観・内観・こだわりポイントなどを写真中心で構成。</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="step-num">4</div>
-    <div class="step-body">
-      <h4>アイキャッチ画像を設定</h4>
-      <p>一番映える外観写真を選びます。トップページのギャラリーに使われます。</p>
-    </div>
-  </div>
-
-  <div class="step">
-    <div class="step-num">5</div>
-    <div class="step-body">
-      <h4>公開</h4>
-    </div>
-  </div>
-
-  <div class="tip">
-    <strong>POINT:</strong> 施工事例は一覧ページがないため、トップページに表示される順番が重要です。新しい事例ほど上に来ます。
+  <div class="important">
+    <strong>現在の状況:</strong> トップページに表示されている施工事例3件（カリフォルニアヴィレッジ福間ビーチ等）は<strong>仮のデータ</strong>です。クリックしても詳細ページには飛びません。<br><br>
+    管理画面に「施工事例」メニューはありますが、まだ投稿が0件の状態です。<br>
+    <strong>現時点では施工事例の投稿機能はまだ準備中です。</strong>トップページへの反映方法が決まり次第、このマニュアルを更新します。
   </div>
 </div>
 
