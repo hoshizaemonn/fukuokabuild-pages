@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>FB HOME IG広告 冒頭フック改善提案 — 中野直紀メソッド準拠</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --sub:#666; --line:#e6e2db; --bg:#faf8f4;
+    --accent:#1f4f8b; --warn:#c0392b; --ok:#2c8a4a; --gold:#c9a648;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{
+    font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:var(--ink); background:var(--bg);
+    line-height:1.65; padding:48px 32px; max-width:1240px; margin:0 auto;
+  }
+  h1{
+    font-size:34px; font-weight:800; letter-spacing:-.5px;
+    border-bottom:4px solid var(--ink); padding-bottom:16px; margin-bottom:8px;
+  }
+  .meta{color:var(--sub); font-size:13px; margin-bottom:48px}
+  h2{
+    font-size:22px; font-weight:800; margin:56px 0 20px;
+    padding-left:14px; border-left:6px solid var(--accent);
+  }
+  h3{font-size:17px; font-weight:800; margin:24px 0 12px}
+  p{font-size:14px; margin-bottom:10px}
+  .lead{font-size:15px; background:#fff; padding:20px 24px; border:1px solid var(--line); border-radius:6px; margin-bottom:32px}
+
+  /* 現状チェック表 */
+  .check-grid{display:grid; grid-template-columns:1fr 80px 1fr; gap:0; border:1px solid var(--line); background:#fff; border-radius:6px; overflow:hidden}
+  .check-grid > div{padding:14px 18px; border-bottom:1px solid var(--line); font-size:14px}
+  .check-grid > div:nth-child(3n+2){text-align:center; font-weight:800; font-size:18px; color:var(--warn); background:#fdf3f1}
+  .check-grid > div:nth-child(3n){color:var(--sub)}
+  .check-grid > div:nth-last-child(-n+3){border-bottom:none}
+
+  /* 案カード */
+  .plan{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:28px; margin-bottom:24px; position:relative;
+  }
+  .plan.recommended{border:3px solid var(--gold); box-shadow:0 4px 20px rgba(201,166,72,.15)}
+  .plan-badge{
+    position:absolute; top:-14px; left:24px;
+    background:var(--gold); color:#fff; font-weight:800; font-size:12px;
+    padding:6px 16px; border-radius:20px; letter-spacing:1px;
+  }
+  .plan h3{font-size:20px; margin-top:0; display:flex; align-items:baseline; gap:12px}
+  .plan h3 .tag{font-size:11px; color:var(--sub); font-weight:600; letter-spacing:1px}
+
+  /* ストーリーボード */
+  .storyboard{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:18px 0}
+  .frame{border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fafafa}
+  .frame .time{
+    background:#1a1a1a; color:#fff; font-family:"SF Mono",monospace;
+    font-size:11px; font-weight:700; padding:6px 10px; letter-spacing:1px;
+  }
+  .frame .visual{
+    aspect-ratio:9/16; position:relative;
+    background-size:cover; background-position:center;
+    display:flex; flex-direction:column; padding:18px;
+  }
+  .frame.black-bg .visual{background:#000}
+  .telop{
+    color:#fff; font-weight:800; font-size:17px; line-height:1.3;
+    text-shadow:0 2px 6px rgba(0,0,0,.6);
+    background:rgba(0,0,0,.25); padding:6px 10px; border-radius:3px;
+    display:inline-block; align-self:flex-start;
+  }
+  .telop.right{align-self:flex-end}
+  .telop.center{align-self:center; text-align:center}
+  .telop.small{font-size:12px; font-weight:600; background:none; text-shadow:0 2px 4px rgba(0,0,0,.7)}
+  .telop.serif{font-family:"Hiragino Mincho ProN",serif; font-style:italic}
+  .telop.yellow{color:#ffd84d}
+  .spacer{flex:1}
+  .frame .note{padding:10px 14px; font-size:12px; color:var(--sub); background:#fff; border-top:1px solid var(--line); min-height:50px}
+  .frame .note b{color:var(--ink)}
+
+  /* 狙い・効果ボックス */
+  .why{
+    background:#f4f0e7; border-left:4px solid var(--gold);
+    padding:14px 18px; margin-top:14px; font-size:13.5px; border-radius:0 4px 4px 0;
+  }
+  .why b{color:var(--accent)}
+
+  /* 比較表 */
+  table{width:100%; border-collapse:collapse; background:#fff; font-size:13.5px; margin-top:16px}
+  th,td{padding:11px 14px; border:1px solid var(--line); text-align:left; vertical-align:top}
+  th{background:#f0ece4; font-weight:700}
+  td.center{text-align:center}
+  td.win{background:#eaf4ec; font-weight:700; color:var(--ok)}
+
+  /* 推奨ブロック */
+  .recommendation{
+    background:linear-gradient(180deg, #fff7e0, #fffbf0);
+    border:2px solid var(--gold); border-radius:8px;
+    padding:24px 28px; margin-top:32px;
+  }
+  .recommendation h3{font-size:18px; color:var(--accent); margin-top:0}
+
+  /* footer */
+  footer{margin-top:60px; padding-top:24px; border-top:1px solid var(--line); color:var(--sub); font-size:12px; line-height:1.8}
+</style>
+</head>
+<body>
+
+<h1>IG広告 冒頭フック改善提案</h1>
+<div class="meta">FB HOME｜中野直紀『15秒! 集客革命』メソッド準拠｜2026-06-16｜星崎→鈴木さん</div>
+
+<div class="lead">
+  <b>提案の主旨。</b> 角田代表から届いた広告動画（50秒・4:5）は、絵・テンポ・物件選定・「Style Meets Strength」採用すべて問題なし。<b>唯一の修正点は冒頭3秒の黒画面+概念テキスト</b>。Meta広告は冒頭3秒で離脱が決まるため、ここを中野直紀の15秒メソッドに沿って差し替えることで、完了率・CTRの大幅改善が見込めます。クライアント側の追加撮影は不要、テロップ差し替えのみで実装可能なA案を推奨します。
+</div>
+
+<h2>現状の冒頭3秒 — 中野メソッド5項目チェック</h2>
+
+<div class="check-grid">
+  <div><b>チェック項目</b></div><div><b>判定</b></div><div><b>現状</b></div>
+  <div>① 冒頭2秒で <b>Who</b> 提示</div><div>×</div><div>黒画面のみ。誰向けか不明</div>
+  <div>② 冒頭2秒で <b>What</b> 提示</div><div>×</div><div>「Style Meets Strength」は概念で What ではない</div>
+  <div>③ <b>ベネフィット</b>（得られる未来）の提示</div><div>×</div><div>商品の特徴（メリット）も未提示</div>
+  <div>④ <b>シズル感</b>（五感に訴える絵）</div><div>×</div><div>黒背景＋セリフ体テキストのみ</div>
+  <div>⑤ <b>2-3秒ごとの画角変更</b></div><div>×</div><div>3秒間ほぼ静止</div>
+</div>
+
+<p style="margin-top:16px; color:var(--warn); font-weight:700">→ 5項目すべて未達。Meta広告 0-3秒の離脱率に直結する状態。</p>
+
+
+<h2>改善3案 — ストーリーボード比較</h2>
+
+<!-- A案 -->
+<div class="plan recommended">
+  <div class="plan-badge">★ 推奨</div>
+  <h3>A案：Who/What 同時提示型 <span class="tag">クライアント追加撮影なし</span></h3>
+
+  <div class="storyboard">
+    <div class="frame">
+      <div class="time">0.0 — 1.0s</div>
+      <div class="visual" style="background-image:url('img/IMG_E6247.jpg')">
+        <span class="telop">福岡で建てる、</span>
+      </div>
+      <div class="note"><b>Who 提示。</b>「福岡で家を建てたい層」に名指しで呼びかけ</div>
+    </div>
+    <div class="frame">
+      <div class="time">1.0 — 2.0s</div>
+      <div class="visual" style="background-image:url('img/IMG_6325.jpg')">
+        <span class="spacer"></span>
+        <span class="telop right">西海岸の家。</span>
+      </div>
+      <div class="note"><b>What 提示。</b>得られる暮らしを 1ワードで明示。緩やかなズームで画角変化</div>
+    </div>
+    <div class="frame">
+      <div class="time">2.0 — 3.0s</div>
+      <div class="visual" style="background-image:url('img/IMG_0329.jpg')">
+        <span class="spacer"></span>
+        <span class="telop center">━ FB HOME ━</span>
+        <span class="telop center small serif">Style Meets Strength</span>
+      </div>
+      <div class="note"><b>ブランド着地。</b>既存「Style Meets Strength」を補助コピーに格下げして残す</div>
+    </div>
+  </div>
+
+  <div class="why">
+    <b>狙い:</b> 0-2秒で Who（福岡で建てる人）と What（西海岸の家）を同時提示。中野メソッド①Who/②What/④シズル感/⑤画角変更を満たし、6/3会議の「Style Meets Strength」コンセプトも維持。
+  </div>
+</div>
+
+<!-- B案 -->
+<div class="plan">
+  <h3>B案：ベネフィット先出し型 <span class="tag">朝の人物カット追加撮影が必要</span></h3>
+
+  <div class="storyboard">
+    <div class="frame">
+      <div class="time">0.0 — 1.0s</div>
+      <div class="visual" style="background-image:url('img/IMG_E1598.jpg')">
+        <span class="telop">朝、ここで</span>
+      </div>
+      <div class="note"><b>ベネフィット起点。</b>ポーチ・ハンモック・朝の光</div>
+    </div>
+    <div class="frame">
+      <div class="time">1.0 — 2.0s</div>
+      <div class="visual" style="background:#888; display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px">
+        <span class="telop center">コーヒーを。<br><span style="font-size:11px; opacity:.8">（子どもとパパの後ろ姿）</span></span>
+      </div>
+      <div class="note"><b>暮らしカット（要撮影）。</b>家族の手元・後ろ姿。生活シーン</div>
+    </div>
+    <div class="frame">
+      <div class="time">2.0 — 3.0s</div>
+      <div class="visual" style="background-image:url('img/IMG_E6247.jpg')">
+        <span class="spacer"></span>
+        <span class="telop right">福岡に、西海岸を建てる。</span>
+      </div>
+      <div class="note"><b>引きへ。</b>外観で全体像を提示</div>
+    </div>
+  </div>
+
+  <div class="why">
+    <b>狙い:</b> 「商品」より「暮らし」を先出し。中野メソッドの「メリットNG・ベネフィットOK」を100%実装。ただし朝の人物カットは要追加撮影。
+  </div>
+</div>
+
+<!-- C案 -->
+<div class="plan">
+  <h3>C案：悩み共感型 <span class="tag">無料素材で代替可</span></h3>
+
+  <div class="storyboard">
+    <div class="frame">
+      <div class="time">0.0 — 1.0s</div>
+      <div class="visual" style="background:#9a9a9a; display:flex; align-items:flex-start; justify-content:flex-start">
+        <span class="telop">「無難な家」で</span>
+      </div>
+      <div class="note"><b>悩み起点。</b>ありきたりな建売外観（無料素材で代替）</div>
+    </div>
+    <div class="frame">
+      <div class="time">1.0 — 2.0s</div>
+      <div class="visual" style="background:linear-gradient(90deg,#999,#fff)">
+        <span class="telop">いいですか？</span>
+      </div>
+      <div class="note"><b>クロスフェード。</b>無難→西海岸へ転換</div>
+    </div>
+    <div class="frame">
+      <div class="time">2.0 — 3.0s</div>
+      <div class="visual" style="background-image:url('img/IMG_E6247.jpg')">
+        <span class="spacer"></span>
+        <span class="telop right yellow">福岡に、西海岸を。</span>
+      </div>
+      <div class="note"><b>解決の絵。</b>FB HOME 外観で answer を提示</div>
+    </div>
+  </div>
+
+  <div class="why">
+    <b>狙い:</b> 中野5要素②「悩みの共感」をストレートに。Meta広告「9割が逆だった」型フックと親和性高。ただし建売NG絵を入れることで他社批判のリスクあり。
+  </div>
+</div>
+
+
+<h2>3案比較</h2>
+
+<table>
+<thead>
+<tr><th width="22%">評価軸</th><th>A: Who/What 同時提示 <b>★推奨</b></th><th>B: ベネフィット先出し</th><th>C: 悩み共感</th></tr>
+</thead>
+<tbody>
+<tr><td>中野メソッド適合</td><td class="win">◎ Who/What同時 + ④⑤も満たす</td><td>◎ ベネフィット先出</td><td>◎ 悩み共感型</td></tr>
+<tr><td>制作難易度</td><td class="win">低（既存素材で完結）</td><td>中（朝の人物カット要撮影）</td><td>低（無料素材で代替可）</td></tr>
+<tr><td>クライアント側修正量</td><td class="win">小（テロップだけ）</td><td>中（追加撮影要）</td><td>小〜中（無料素材選定要）</td></tr>
+<tr><td>「Style Meets Strength」継承</td><td class="win">◎ 補助コピーで残す</td><td>△ 末尾に移動</td><td>△ 末尾に移動</td></tr>
+<tr><td>他社批判リスク</td><td class="win">なし</td><td>なし</td><td>中（"無難な家"が他社建売に重なる）</td></tr>
+<tr><td>即運用可能性</td><td class="win">本日中に修正版納品可</td><td>2-3日（撮影調整）</td><td>1-2日（素材選定）</td></tr>
+</tbody>
+</table>
+
+
+<div class="recommendation">
+  <h3>★ 推奨：A案で進行</h3>
+  <p>クライアント側の追加撮影ゼロ／テロップ差し替えのみで実装可能／6/3会議で確定した「Style Meets Strength」コンセプトを残せる、の3点でA案が最も合理的です。</p>
+  <p style="margin-top:10px"><b>実装手順:</b> ① クライアント (角田代表) に本HTMLを共有 → ② OKいただいたら星崎側で冒頭3秒のテロップ差し替え版を作成 → ③ 鈴木さん最終確認 → ④ 配信開始。</p>
+</div>
+
+
+<h2>補足（中野メソッドの周辺）</h2>
+<p>① テロップは縦書きより横書き（Meta広告は親指スクロール＝横方向視線が早い）</p>
+<p>② 末尾CTAに <b>3心理オファー</b> を追加: 例「6月見学予約 残り◯枠」（緊急性）／「先着10組 間取り相談無料」（限定感）</p>
+<p>③ 5要素構成全体としては現状動画の50秒中に①②③④⑤がほぼ揃っているため、<b>HOOKだけ差し替えれば完成度が大きく上がる</b></p>
+<p>④ 別途、<b>15秒9:16 ショート版</b> を新規お客様宅素材中心で制作するとMeta広告のCPM効率が良化（推奨）</p>
+
+
+<footer>
+出典: 仲野直紀『15秒! 集客革命』第2章<br>
+社内ナレッジ: 受託事業/_共通/15秒広告マスターメソッド_仲野直紀.md<br>
+関連方針: SNS運用/Instagramナレッジ_FBHOME/方針_20260614_会議反映.md（6/3会議で「Style Meets Strength」確定）<br>
+動画ファイル: ~/Downloads/TZWH1581.MOV（50秒・1080×1350・4:5）
+</footer>
+
+</body>
+</html>
