@@ -135,7 +135,7 @@ footer { text-align:center; color:var(--gray); font-size:13px; padding:24px 0 8p
   <div class="tag">福岡ビルド ／ FB HOME ／ Meta広告 結果報告</div>
   <h1>資料請求広告の結果と<br>次の改善提案</h1>
   <p class="lead">7/18〜19に配信した資料請求広告の結果をまとめました。<br>資料請求は0件でしたが、内訳から次の打ち手が見えています。</p>
-  <div class="meta">作成：2026/07/20 ／ 星崎　｜　データ：Meta広告マネージャ（確定値・2026/7/18〜7/19）</div>
+  <div class="meta">作成：2026/07/20 ／ 星崎　｜　データ：Meta広告マネージャ（確定値・2026/7/18〜7/19）／Microsoft Clarity ヒートマップ</div>
 </header>
 
 <section>
@@ -159,7 +159,7 @@ footer { text-align:center; color:var(--gray); font-size:13px; padding:24px 0 8p
   </div>
   <div class="callout">
     <h3>まとめ</h3>
-    <p><strong>見せて、興味を持ってもらい、LPまで運ぶところまでは機能しています。</strong>次は「LPに着いた人が動きたくなる材料」を用意する段階です。具体策を⑦にまとめました。</p>
+    <p><strong>見せて、興味を持ってもらい、LPまで運ぶところまでは機能しています。</strong>次は「LPに着いた人が動きたくなる材料」を用意する段階です。実際にLPへ来られた方は「もっと見たい」の段階で止まっていました（⑦）。具体策を⑧にまとめました。</p>
   </div>
 </section>
 
@@ -325,30 +325,118 @@ footer { text-align:center; color:var(--gray); font-size:13px; padding:24px 0 8p
 </section>
 
 <section>
-  <h2>⑦ 次の提案</h2>
+  <h2>⑦ LPで実際に何が起きていたか</h2>
+  <p>ヒートマップツール（Microsoft Clarity）で、LPに来た方がどこを押したかを記録していました。<strong>結果がはっきり出ています。</strong></p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="v">8回</div><div class="l">スマホでのタップ総数</div></div>
+    <div class="kpi g"><div class="v">8回</div><div class="l">うち「画像」へのタップ</div></div>
+    <div class="kpi"><div class="v">0回</div><div class="l">フォームへのタップ</div></div>
+    <div class="kpi"><div class="v">0回</div><div class="l">ボタンへのタップ</div></div>
+  </div>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>順位</th><th>押された場所</th><th>回数</th><th>押すとどうなるか</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td data-l="順位">1位</td><td data-l="押された場所"><strong>「資料の中身を少しだけ」の2枚目の写真</strong>（吹き抜けリビング）</td><td data-l="回数"><strong>6回（75%）</strong></td><td class="bad-v" data-l="押すとどうなるか">何も起きません</td></tr>
+      <tr class="hl"><td data-l="順位">2位</td><td data-l="押された場所"><strong>ファーストビューの販売図面のサムネイル</strong></td><td data-l="回数"><strong>2回（25%）</strong></td><td class="bad-v" data-l="押すとどうなるか">何も起きません</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout warn">
+    <h3>「登録しない」のではなく、「もっと見たい」で止まっていました</h3>
+    <p>押された2箇所は<strong>どちらも写真です。そして、どちらもリンクになっていないため、押しても何も起こりません。</strong></p>
+    <p>お部屋の写真を大きく見ようとした方、販売図面の中身を確かめようとした方が、<strong>その場で行き止まりに突き当たっていた</strong>ことになります。「申し込むかどうか」を考える前の段階で止まっていました。</p>
+    <p><strong>これは、apart-x.jp のLPで見つかった課題と同じ形です。</strong>あちらもクリック1位・2位がリンクになっていない箇所でした。<strong>押せない場所が押されているのは、「もっと知りたい」という明確なサインです。</strong></p>
+  </div>
+
+  <div class="src">
+    データ：Microsoft Clarity（モバイル・2026/7/18〜7/20・ページビュー39）<br>
+    ※集計期間に当方の動作確認アクセスが含まれるためページビュー数はMeta計測（27）と一致しませんが、<strong>8回のタップはいずれも実際のご訪問者による操作です。</strong>
+  </div>
+</section>
+
+<section>
+  <h2>⑧ 次の提案</h2>
+  <p>ヒートマップの結果から、<strong>「見せてから、申し込んでいただく」順番に組み替える</strong>のが最優先だと考えています。</p>
+
   <div class="props">
     <div class="prop">
-      <div class="pn">提案 1</div>
-      <h3>お渡しする資料を見直す</h3>
-      <p>現在お渡ししている「販売図面」は、SUUMOなどのポータルサイトで無料で見られる情報と重なっています。糸島市だけでも200件以上が価格・間取り込みで公開されているため、<strong>お客様が個人情報を入力してまで欲しい内容になっていません。</strong><br><br>「月々のお支払いシミュレーション」など、<strong>ポータルでは手に入らない情報</strong>を加えることを提案します。</p>
+      <div class="pn">提案 1 ／ 最優先</div>
+      <h3>写真を拡大できるようにする</h3>
+      <p><strong>一番押されている場所が、いま行き止まりになっています。</strong>タップで拡大表示されるようにするだけで、この取りこぼしはなくなります。<br><br>あわせて<strong>販売図面も、一部を大きく見られる</strong>ようにしたいです。<strong>作り直しは不要で、すぐ反映できます。</strong></p>
     </div>
     <div class="prop">
       <div class="pn">提案 2</div>
-      <h3>資料請求以外の入口を用意する</h3>
-      <p>分譲住宅のような特定の1物件を扱う広告では、資料請求だけでなく<strong>「現地見学のご予約」「LINEで相談」</strong>を並べて設置するのが一般的です。<br><br>お客様によって動きやすい入口が違うため、選択肢を用意することで反応が拾いやすくなります。</p>
+      <h3>物件そのものの情報をLPに載せる</h3>
+      <p>現在のLPには<strong>二丈上深江の物件情報がほとんど載っていません。</strong>所在地・土地面積・間取り・入居時期などが分からないまま、フォームが現れます。<br><br><strong>先に物件を見ていただき、そのうえで資料をご請求いただく</strong>流れに変えたいです。二丈上深江のお写真と間取り図をご提供いただければ対応できます。</p>
     </div>
     <div class="prop">
       <div class="pn">提案 3</div>
-      <h3>Instagramに配信を寄せる</h3>
-      <p>クリックの74%がInstagram経由でした。Facebook面は効率が落ちているため、次回はInstagram中心に配信します。<strong>追加費用なしで実施できます。</strong></p>
+      <h3>資料の中身を具体的にお伝えする</h3>
+      <p>現在は「価格も、間取りも」という書き方ですが、<strong>これはSUUMO等でも見られる情報</strong>です。<br><br>「<strong>月々のお支払い例</strong>」など、ポータルサイトにはない情報を1つ加え、<strong>資料に何が載っているのかを具体的に明記</strong>したいです。</p>
     </div>
     <div class="prop">
       <div class="pn">提案 4</div>
-      <h3>LPの最初の画面にボタンを置く</h3>
-      <p>現在のLPは、最初に表示される画面に資料請求ボタンがありません。スクロールしないと押す先が現れない状態のため、<strong>最初の画面にボタンを追加</strong>します。こちらも作り直しは不要です。</p>
+      <h3>ご不安に先回りする一文を置く</h3>
+      <p>住宅の資料請求では「<strong>しつこく営業されるのでは</strong>」という不安が最も大きいとされています。現在のLPには、この点に触れた記載がありません。<br><br>後述のFREEDOM社は「営業・勧誘は一切おこなっておりません」と明記しています。<strong>同様の記載が可能かどうか、御社の運用方針をご確認いただけますと幸いです。</strong></p>
+    </div>
+    <div class="prop">
+      <div class="pn">提案 5</div>
+      <h3>最初の画面にボタンを置く</h3>
+      <p>現在は、スクロールしないと申し込み先が現れません。<strong>最初の画面にボタンを追加</strong>します。こちらも追加費用なしで対応できます。</p>
+    </div>
+    <div class="prop">
+      <div class="pn">提案 6</div>
+      <h3>Instagramに配信を寄せる</h3>
+      <p>クリックの<strong>74%がInstagram経由</strong>でした。Facebook面は効率が落ちているため、次回はInstagram中心に配信します。<strong>追加費用なしで実施できます。</strong></p>
     </div>
   </div>
+
+  <h3>参考にしたい他社のページ</h3>
+  <p>いずれも実際に稼働している同業のページです。<strong>共通しているのは「見せてから、申し込んでもらう」構成</strong>でした。</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>参考ページ</th><th>参考にしたい点</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="参考ページ"><strong>FREEDOM（注文住宅）</strong><br><a href="https://freedom.co.jp/sp/form/">https://freedom.co.jp/sp/form/</a><br><span style="font-size:12px;color:var(--gray)">※Meta広告からの着地ページ</span></td>
+        <td data-l="参考にしたい点">
+          ・入力項目は<strong>13項目と多いにもかかわらず</strong>、フォームは<strong>ページ中盤より下</strong>。手前で実例写真を見せ切っている<br>
+          ・資料の中身を<strong>「実例写真／間取り情報／建築費・坪単価まで記載」と具体的に明示</strong><br>
+          ・<strong>「直接訪問などの営業・勧誘は一切おこなっておりません」</strong>と不安に先回り<br>
+          ・「1995年創業・累計4,000棟」と<strong>実績を数字で提示</strong>
+        </td>
+      </tr>
+      <tr>
+        <td data-l="参考ページ"><strong>一条工務店</strong><br><a href="https://www.ichijo.co.jp/land/area/?pref=40">https://www.ichijo.co.jp/land/area/?pref=40</a></td>
+        <td data-l="参考にしたい点">
+          ・分譲住宅一覧で<strong>「見学予約」を主なボタン</strong>として設置<br>
+          ・<strong>キャンペーン・特別価格の訴求</strong>を併用している<br>
+          ・FB HOMEでも、二丈上深江に<strong>期間や条件を設けた訴求が可能かどうか</strong>はご検討の余地があると考えています
+        </td>
+      </tr>
+      <tr>
+        <td data-l="参考ページ"><strong>タウンライフ家づくり</strong><br><a href="https://www.town-life.jp/home/main/chatform.php">https://www.town-life.jp/home/main/chatform.php</a></td>
+        <td data-l="参考にしたい点">
+          ・<strong>1問ずつ順番に答えるチャット形式</strong>のフォーム。選択肢をタップしていくだけ<br>
+          ・<strong>氏名・連絡先は一番最後</strong>に聞く<br>
+          ・ただしこれは<strong>「あなた専用の間取りプランを作る」注文住宅だから成立する形</strong>です。二丈上深江のように<strong>間取りも価格も決まっている分譲住宅では、質問しても内容が変わらない</strong>ため、<strong>FB HOMEには適さないと判断しました</strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">
+    <h3>実施にあたりご確認いただきたい点</h3>
+    <p>提案2の<strong>二丈上深江のお写真・間取り図</strong>、提案4の<strong>営業に関する運用方針</strong>、および<strong>実績として掲載できる数字</strong>については、御社にご確認のうえ進めさせていただきます。<strong>事実と異なる記載は掲載いたしません。</strong></p>
+  </div>
 </section>
+
 
 
 <footer>福岡ビルド株式会社 ／ FB HOME ／ Meta広告 結果報告 ／ 2026年7月20日 作成：星崎</footer>
